@@ -17,6 +17,7 @@ const verifyUser = (req, res, next) => {
 
 const verifyAdmin = (req, res, next) => {
     if (req.user.role != 'admin') {
+        let err = new Error('you are not authorized')
         res.status(403)
         return next(new Error('Not admin'))
     }
