@@ -10,7 +10,8 @@ const profileSchema = mongoose.Schema({
         required: true
     },
     image: {
-        type: String
+        type: String,
+        require: true
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,

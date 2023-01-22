@@ -7,6 +7,7 @@ const booksRouter = require('./routes/books-routes')
 const categoryRouter = require('./routes/category-routes')
 const userRouter = require('./routes/users-routes')
 const auth = require('./middleware/auth')
+const profile_route= require('./routes/profile-routes')
 
 const port = process.env.PORT || 3000
 
@@ -34,6 +35,7 @@ app.get('^/$|/index(.html)?', (req, res) => {
 
 app.use('/users', userRouter)
 app.use(auth.verifyUser)
+app.use('/profile', auth.verifyUser,profile_route)
 app.use('/books', booksRouter)
 app.use('/categories', categoryRouter)
 // Error handling middleware
